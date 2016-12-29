@@ -1,0 +1,11 @@
+body {
+	margin: 0 0;
+}
+.square {
+	background-color: #1199bb;
+	width: 1em;
+	height: 1em;
+	border: 0.1em solid #555;
+	display: inline-block;
+	vertical-align: top;
+}
