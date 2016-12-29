@@ -1,7 +1,10 @@
-console.log("hey");
 
 for (var i = 0; i < 2000; i++) {
 	var square = document.createElement("div");
-	square.className = "square";
+	if (i % 3 == 0) {
+		square.className = "square";
+	} else {
+		square.className = "square-active";
+	}
 	document.body.appendChild(square);
 }

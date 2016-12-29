@@ -2,10 +2,18 @@ body {
 	margin: 0 0;
 }
 .square {
-	background-color: #1199bb;
+	background-color: #6E7783;
 	width: 1em;
 	height: 1em;
-	border: 0.1em solid #555;
+	border: 0.1em solid #6E7783;
+	display: inline-block;
+	vertical-align: top;
+}
+.square-active {
+	background-color: #77AAAD;
+	width: 1em;
+	height: 1em;
+	border: 0.1em solid #6E7783;
 	display: inline-block;
 	vertical-align: top;
 }
