@@ -1,19 +1,16 @@
 body {
 	margin: 0 0;
+	line-height: 0px;
 }
 .square {
-	background-color: #6E7783;
+	background-color: #a5dff9;
 	width: 1em;
 	height: 1em;
-	border: 0.1em solid #6E7783;
 	display: inline-block;
-	vertical-align: top;
 }
 .square-active {
-	background-color: #77AAAD;
+	background-color: #ef5285;
 	width: 1em;
 	height: 1em;
-	border: 0.1em solid #6E7783;
 	display: inline-block;
-	vertical-align: top;
 }

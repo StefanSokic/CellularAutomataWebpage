@@ -1,10 +1,14 @@
 
-for (var i = 0; i < 2000; i++) {
+for (var i = 0; i < 5500; i++) {
 	var square = document.createElement("div");
-	if (i % 3 == 0) {
+	if (binaryRand() == 0) {
 		square.className = "square";
 	} else {
 		square.className = "square-active";
 	}
 	document.body.appendChild(square);
+}
+
+function binaryRand() {
+	return Math.round(Math.random());
 }
