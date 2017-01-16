@@ -1,28 +1,9 @@
 
-//using rule 73
-
-for (var i = 0; i < 81; i++) {
-	var square = document.createElement("div");
-	if (binaryRand() == 0) {
-		square.className = "square-inactive";
-	} else {
-		square.className = "square-active";
-	}
-	document.body.appendChild(square);
-}
-
-function binaryRand() {
-	return Math.round(Math.random());
-}
-
-// 2d array approach
-
 /*  - create a 80x200 2d array
 	- the first row is randomly generated
-	- all following rows take shape based on the rows above them
+	- all following rows take shape based on the rows above them RULE 86
 	- use the .map() function to append it all to the body
 */
-
 var array = [];
 for (var row = 0; row < 200; row++) {
 	var innerArray = [];
@@ -31,15 +12,49 @@ for (var row = 0; row < 200; row++) {
 		if (row == 0) {
 			innerArray.push(binaryRand());
 		} else { // the rest are filled based on the state of the row above it
-			if (array[row-1][col] == 1) {
-				innerArray.push("cell above is a 1");
-			} else {
-				innerArray.push("cell above is a 0");
-			}
+			rule86(innerArray);
 		}
 	}
 	array.push(innerArray);
 }
-
-console.log(array);
+function binaryRand() {
+	return Math.round(Math.random());
+}
+function rule86(innerArray) {
+			if (array[row - 1][col - 1] == 1 && array[row - 1][col] == 1 && array[row - 1][col + 1] == 1) {
+				innerArray.push(0);
+			} else if (array[row - 1][col - 1] == 1 && array[row - 1][col] == 1 && array[row - 1][col + 1] == 0) {
+				innerArray.push(1);
+			} else if (array[row - 1][col - 1] == 1 && array[row - 1][col] == 0 && array[row - 1][col + 1] == 1) {
+				innerArray.push(0);
+			} else if (array[row - 1][col - 1] == 1 && array[row - 1][col] == 0 && array[row - 1][col + 1] == 0) {
+				innerArray.push(1);
+			} else if (array[row - 1][col - 1] == 0 && array[row - 1][col] == 1 && array[row - 1][col + 1] == 1) {
+				innerArray.push(0);
+			} else if (array[row - 1][col - 1] == 0 && array[row - 1][col] == 1 && array[row - 1][col + 1] == 0) {
+				innerArray.push(1);
+			} else if (array[row - 1][col - 1] == 0 && array[row - 1][col] == 0 && array[row - 1][col + 1] == 1) {
+				innerArray.push(1);
+			} else if (array[row - 1][col - 1] == 0 && array[row - 1][col] == 0 && array[row - 1][col + 1] == 0) {
+				innerArray.push(0);
+			} else {
+				innerArray.push(binaryRand());
+			}
+		
+}
+// create elements in the body and assign active or inactive states based on the array
+for (var k = 0; k < array.length; k++) {
+	for (var l = 0; l < array[k].length; l++) {
+		//console.log(array[k][l]);
+		var square = document.createElement("div");
+		if (array[k][l] == 0) {
+			square.className = "square-inactive";
+		} else {
+			square.className = "square-active";
+		}
+		document.body.appendChild(square);
+	}
+	var mybr = document.createElement('br');
+	document.body.appendChild(mybr);	
+}
 

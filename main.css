@@ -2,9 +2,6 @@ body {
 	margin: 0 0;
 	line-height: 0px;
 }
-div {
-	margin: 1px 1px;
-}
 .square-inactive {
 	background-color: #a5dff9;
 	width: 0.7em;
