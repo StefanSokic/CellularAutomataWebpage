@@ -2,15 +2,18 @@ body {
 	margin: 0 0;
 	line-height: 0px;
 }
-.square {
+div {
+	margin: 1px 1px;
+}
+.square-inactive {
 	background-color: #a5dff9;
-	width: 1em;
-	height: 1em;
+	width: 0.7em;
+	height: 0.7em;
 	display: inline-block;
 }
 .square-active {
 	background-color: #ef5285;
-	width: 1em;
-	height: 1em;
+	width: 0.7em;
+	height: 0.7em;
 	display: inline-block;
 }
