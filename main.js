@@ -1,10 +1,7 @@
 
-/*  - create a 80x200 2d array
-	- the first row is randomly generated
-	- all following rows take shape based on the rows above them RULE 86
-	- use the .map() function to append it all to the body
-*/
+
 var array = [];
+// creating a 2d array
 for (var row = 0; row < 200; row++) {
 	var innerArray = [];
 	for (var col = 0; col < 80; col++) {
@@ -17,9 +14,11 @@ for (var row = 0; row < 200; row++) {
 	}
 	array.push(innerArray);
 }
+// returns either a 1 or a 0 randomly
 function binaryRand() {
 	return Math.round(Math.random());
 }
+// decides the state of the current square based on the state of the one above it and it's siblings
 function rule86(innerArray) {
 			if (array[row - 1][col - 1] == 1 && array[row - 1][col] == 1 && array[row - 1][col + 1] == 1) {
 				innerArray.push(0);
@@ -45,7 +44,6 @@ function rule86(innerArray) {
 // create elements in the body and assign active or inactive states based on the array
 for (var k = 0; k < array.length; k++) {
 	for (var l = 0; l < array[k].length; l++) {
-		//console.log(array[k][l]);
 		var square = document.createElement("div");
 		if (array[k][l] == 0) {
 			square.className = "square-inactive";
